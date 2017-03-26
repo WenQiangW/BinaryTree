@@ -1,5 +1,4 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS 1
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -44,16 +43,16 @@ public:
 		}
 		return *this;
 	}
-	void PreOrder() //µİ¹é abdcef
+	void PreOrder() //é€’å½’ abdcef
 	{
-		cout << "Ç°Ğò±éÀú" << endl;
+		cout << "å‰åºéå†" << endl;
 		_PreOreder(_pRoot);
 		cout << endl;
 	}
-	void PreOrder_Nor() //·Çµİ¹é
-		//ÔÚÕ»ÖĞ´æ·Å£¨ºó½øÏÈ³ö£© ÏÈ´æ·ÅÓÒº¢×Ó£¬ÔÙ´æ·Å×óº¢×Ó
+	void PreOrder_Nor() //éé€’å½’
+		//åœ¨æ ˆä¸­å­˜æ”¾ï¼ˆåè¿›å…ˆå‡ºï¼‰ å…ˆå­˜æ”¾å³å­©å­ï¼Œå†å­˜æ”¾å·¦å­©å­
 	{
-		cout << "Ç°Ğò±éÀú" << endl;
+		cout << "å‰åºéå†" << endl;
 		if (_pRoot == NULL)
 			return;
 		stack<BinaryTreeNode<T>*> s;
@@ -70,16 +69,16 @@ public:
 		}
 		cout << endl;
 	}
-	void InOrder() //µİ¹é£ºdbaecf
+	void InOrder() //é€’å½’ï¼šdbaecf
 	{
-		cout << "ÖĞĞò±éÀú" << endl;
+		cout << "ä¸­åºéå†" << endl;
 		_InOrder(_pRoot);
 		cout << endl;
 	}
-	void InOrder_Nor() //·Çµİ¹é
-		//´æ·Åµ½Õ»ÖĞ ÏÈÕÒµ½×î×ó±ßµÄ½Úµã£¨ÒÀ´Î´æ·Å£©
+	void InOrder_Nor() //éé€’å½’
+		//å­˜æ”¾åˆ°æ ˆä¸­ å…ˆæ‰¾åˆ°æœ€å·¦è¾¹çš„èŠ‚ç‚¹ï¼ˆä¾æ¬¡å­˜æ”¾ï¼‰
 	{
-		cout << "ÖĞĞò±éÀú" << endl;
+		cout << "ä¸­åºéå†" << endl;
 		if (NULL == _pRoot)
 			return;
 
@@ -87,7 +86,7 @@ public:
 		stack<BinaryTreeNode<T>*> s;
 		while (NULL != pCur || !s.empty())
 		{
-			while (pCur) //´æ·Å½Úµã£¬ÕÒµ½×î×ó±ßµÄ½Úµã
+			while (pCur) //å­˜æ”¾èŠ‚ç‚¹ï¼Œæ‰¾åˆ°æœ€å·¦è¾¹çš„èŠ‚ç‚¹
 			{
 				s.push(pCur);
 				pCur = pCur->_pLeftChild;
@@ -95,29 +94,29 @@ public:
 
 			BinaryTreeNode<T>* pTop = s.top();
 			cout << pTop->_data << " ";
-			pCur = pTop->_pRightChild; //ÔÙÕÒµ±Ç°½ÚµãµÄÓÒ×ÓÊ÷µÄ×î×ó±ß
+			pCur = pTop->_pRightChild; //å†æ‰¾å½“å‰èŠ‚ç‚¹çš„å³å­æ ‘çš„æœ€å·¦è¾¹
 			s.pop();
 		}
 		cout << endl;
 	}
 	void InOrder_Nor2()
-		//´Ó¸ù½Úµã¿ªÊ¼£¬Ö»ÓĞµ±Ç°½Úµã´æÔÚ»òÕßÕ»²»Îª¿Õ£¬ÔòÖØ¸´ÏÂÃæµÄ¹¤×÷
-		//1Èç¹ûµ±Ç°½áµã´æÔÚ£¬Ôò½øÕ»²¢±éÀú×ó×ÓÊ÷
-		//2·ñÔòÍËÕ»²¢·ÃÎÊ£¬È»ºó±éÀúÓÒ×ÓÊ÷
+		//ä»æ ¹èŠ‚ç‚¹å¼€å§‹ï¼Œåªæœ‰å½“å‰èŠ‚ç‚¹å­˜åœ¨æˆ–è€…æ ˆä¸ä¸ºç©ºï¼Œåˆ™é‡å¤ä¸‹é¢çš„å·¥ä½œ
+		//1å¦‚æœå½“å‰ç»“ç‚¹å­˜åœ¨ï¼Œåˆ™è¿›æ ˆå¹¶éå†å·¦å­æ ‘
+		//2å¦åˆ™é€€æ ˆå¹¶è®¿é—®ï¼Œç„¶åéå†å³å­æ ‘
 	{
 		stack<BinaryTreeNode<T>*> s;
 		BinaryTreeNode<T>* pCur = _pRoot;
 		BinaryTreeNode<T>* top = NULL;
 		while (NULL != pCur || !s.empty())
 		{
-			if (pCur != NULL) //¸ùÖ¸Õë½øÕ»£¬±éÀú×ó×ÓÊ÷
+			if (pCur != NULL) //æ ¹æŒ‡é’ˆè¿›æ ˆï¼Œéå†å·¦å­æ ‘
 			{
 				s.push(pCur);
 				pCur = pCur->_pLeftChild;
 			}
 			else
 			{
-				//¸ùÖ¸ÕëÍËÕ»£¬²¢·ÃÎÊ¸ù½Úµã£¬±éÀúÓÒ×ÓÊ÷
+				//æ ¹æŒ‡é’ˆé€€æ ˆï¼Œå¹¶è®¿é—®æ ¹èŠ‚ç‚¹ï¼Œéå†å³å­æ ‘
 				top = s.top();
 				cout << top->_data << "";
 				s.pop();
@@ -125,33 +124,33 @@ public:
 			}
 		}
 	}
-	void PostOrder() //µİ¹é  dbefca
+	void PostOrder() //é€’å½’  dbefca
 	{
-		cout << "ºóĞò±éÀú" << endl;
+		cout << "ååºéå†" << endl;
 		_PostOrder(_pRoot);
 		cout << endl;
 	}
-	void PostOrder_Nor() //·Çµİ¹é
-		// ´æ·Åµ½Õ»ÖĞ£ºÏÈÕÒµ½Ê÷µÄ×î×ó±ß£¬
+	void PostOrder_Nor() //éé€’å½’
+		// å­˜æ”¾åˆ°æ ˆä¸­ï¼šå…ˆæ‰¾åˆ°æ ‘çš„æœ€å·¦è¾¹ï¼Œ
 	{
-		cout << "ºóĞò±éÀú" << endl;
+		cout << "ååºéå†" << endl;
 		if (NULL == _pRoot)
 			return;
 		BinaryTreeNode<T> *pCur = _pRoot;
-		BinaryTreeNode<T>* pPre = NULL; //±£´æÒÑ·ÃÎÊ¹ıµÄÓÒ×ÓÊ÷
+		BinaryTreeNode<T>* pPre = NULL; //ä¿å­˜å·²è®¿é—®è¿‡çš„å³å­æ ‘
 		stack<BinaryTreeNode<T>*> s;
 		while (NULL != pCur || !s.empty())
 		{
-			while (pCur) //±éÀú×ó×ÓÊ÷
+			while (pCur) //éå†å·¦å­æ ‘
 			{
 				s.push(pCur);
 				pCur = pCur->_pLeftChild;
 			}
 			BinaryTreeNode<T>* pTop = s.top();
-			if (NULL == pTop->_pRightChild || pTop->_pRightChild == pPre) //ÅĞ¶ÏÓÒ×ÓÊ÷ÊÇ·ñÎª¿Õ»òÕß·ÃÎÊ¹ı
+			if (NULL == pTop->_pRightChild || pTop->_pRightChild == pPre) //åˆ¤æ–­å³å­æ ‘æ˜¯å¦ä¸ºç©ºæˆ–è€…è®¿é—®è¿‡
 			{
 				cout << pTop->_data << " ";
-				pPre = pTop;//±£´æÒÑ·ÃÎÊ¹ıµÄ½áµã
+				pPre = pTop;//ä¿å­˜å·²è®¿é—®è¿‡çš„ç»“ç‚¹
 				s.pop();
 			}
 			else
@@ -167,10 +166,10 @@ public:
 		_DestoryBinaryTree(_pRoot);
 	}
 
-	void LevelOrder() //²ãĞò±éÀú
-		//´æ·ÅÔÚ¶ÓÁĞÖĞ£ºÏÈ´æ·Å¸ù½Úµã£¬ÔÙ´æ·Å×óº¢×Ó£¬ÔÙ´æ·ÅÓÒº¢×Ó
+	void LevelOrder() //å±‚åºéå†
+		//å­˜æ”¾åœ¨é˜Ÿåˆ—ä¸­ï¼šå…ˆå­˜æ”¾æ ¹èŠ‚ç‚¹ï¼Œå†å­˜æ”¾å·¦å­©å­ï¼Œå†å­˜æ”¾å³å­©å­
 	{
-		cout << "²ã´Î±éÀú" << endl;
+		cout << "å±‚æ¬¡éå†" << endl;
 		if (NULL == _pRoot)
 			return;
 		queue<BinaryTreeNode<T> *> q;
@@ -230,18 +229,18 @@ public:
 	{
 		return _GetKthLeverNodeNum(_pRoot,k);
 	}
-	//ÅĞ¶ÏÁ½¸ö¶ş²æÊ÷µÄ½á¹¹ÊÇ·ñÏàÍ¬
+	//åˆ¤æ–­ä¸¤ä¸ªäºŒå‰æ ‘çš„ç»“æ„æ˜¯å¦ç›¸åŒ
 	bool StructureCmp(BinaryTreeNode<T> *pRoot1, BinaryTreeNode<T> *pRoot2)
 	{
-		if (pRoot1 == NULL && pRoot2 == NULL) // ¶¼Îª¿Õ£¬·µ»ØÕæ  
+		if (pRoot1 == NULL && pRoot2 == NULL) // éƒ½ä¸ºç©ºï¼Œè¿”å›çœŸ  
 			return true;
-		else if (pRoot1 == NULL || pRoot2 == NULL) // ÓĞÒ»¸öÎª¿Õ£¬Ò»¸ö²»Îª¿Õ£¬·µ»Ø¼Ù  
+		else if (pRoot1 == NULL || pRoot2 == NULL) // æœ‰ä¸€ä¸ªä¸ºç©ºï¼Œä¸€ä¸ªä¸ä¸ºç©ºï¼Œè¿”å›å‡  
 			return false;
-		bool resultLeft = StructureCmp(pRoot1->m_pLeft, pRoot2->m_pLeft); // ±È½Ï¶ÔÓ¦×ó×ÓÊ÷   
-		bool resultRight = StructureCmp(pRoot1->m_pRight, pRoot2->m_pRight); // ±È½Ï¶ÔÓ¦ÓÒ×ÓÊ÷  
+		bool resultLeft = StructureCmp(pRoot1->m_pLeft, pRoot2->m_pLeft); // æ¯”è¾ƒå¯¹åº”å·¦å­æ ‘   
+		bool resultRight = StructureCmp(pRoot1->m_pRight, pRoot2->m_pRight); // æ¯”è¾ƒå¯¹åº”å³å­æ ‘  
 		return (resultLeft && resultRight);
 	}
-	//Ç°ĞòÖĞĞò ¹¹½¨¶ş²æÊ÷
+	//å‰åºä¸­åº æ„å»ºäºŒå‰æ ‘
 	void ReBuildBinaryTree(T pre[], size_t preSize, T in[], size_t inSize)
 	{
 		size_t index = 0;
@@ -255,22 +254,22 @@ public:
 	}
 
 
-	//ÅĞ¶ÏÒ»¿Ã¶ş²æÊ÷ÊÇ·ñÎªÍêÈ«¶ş²æÊ÷
-	//½èÖú²ãĞò±éÀú£¬²ÉÓÃ¶ÓÁĞµÄ·½Ê½
+	//åˆ¤æ–­ä¸€æ£µäºŒå‰æ ‘æ˜¯å¦ä¸ºå®Œå…¨äºŒå‰æ ‘
+	//å€ŸåŠ©å±‚åºéå†ï¼Œé‡‡ç”¨é˜Ÿåˆ—çš„æ–¹å¼
 	bool IsCompleteBinaryTree(BinaryTreeNode<T> *pRoot )
 	{
-		//¿ÕÊ÷Ò²ÊÇÍêÈ«¶ş²æÊ÷
+		//ç©ºæ ‘ä¹Ÿæ˜¯å®Œå…¨äºŒå‰æ ‘
 		if (pRoot == NULL)
 			return true; 
 		queue<BinaryTreeNode<T>*> q;
-		q.push(pRoot); //¸ù½ÚµãÈë¶Ó
+		q.push(pRoot); //æ ¹èŠ‚ç‚¹å…¥é˜Ÿ
 		bool mustLeft = false;
 		bool result = true;
 		while (!q.empty())
 		{
 			BinaryTreeNode<T> *pCur = q.front();
 			q.pop();
-			if (mustLeft) //³öÏÖÁË ¿Õ×ÓÊ÷µÄ½Úµã
+			if (mustLeft) //å‡ºç°äº† ç©ºå­æ ‘çš„èŠ‚ç‚¹
 			{
 				if (pCur->_pLeftChild != NULL || pCur->_pRightChild != NULL)
 				{
@@ -303,7 +302,7 @@ public:
 		}
 		return result;
 	}
-	//½èÖú²ãĞò±éÀú£¬°ÑËùÓĞµÄ½Úµã´æÔÚ
+	//å€ŸåŠ©å±‚åºéå†ï¼ŒæŠŠæ‰€æœ‰çš„èŠ‚ç‚¹å­˜åœ¨
 	bool IsCompleteTree(BinaryTreeNode<T> *pRoot)
 	{
 		if (pRoot == NULL)
@@ -311,42 +310,42 @@ public:
 		queue<BinaryTreeNode<T>*> q;
 		q.push(pRoot);
 		BinaryTreeNode<T>* pCur = NULL;
-		//²ãĞò±éÀú¶ş²æÊ÷ ,µ±Óöµ½¿Õ½ÚµãÊÇÍË³ö
+		//å±‚åºéå†äºŒå‰æ ‘ ,å½“é‡åˆ°ç©ºèŠ‚ç‚¹æ˜¯é€€å‡º
 		while ((pCur = q.front()) != NULL)
 		{
 			q.pop();
 			q.push(pCur->_pLeftChild);
 			q.push(pCur->_pRightChild);
 		}
-		q.pop();//°Ñµ±Ç°½ÚµãÎª¿Õ³ö¶Ó
-		//²é¿´Ê£Óà¶ÓÁĞÖĞÊÇ·ñÓĞ²»Îª¿ÕµÄ½Úµã
+		q.pop();//æŠŠå½“å‰èŠ‚ç‚¹ä¸ºç©ºå‡ºé˜Ÿ
+		//æŸ¥çœ‹å‰©ä½™é˜Ÿåˆ—ä¸­æ˜¯å¦æœ‰ä¸ä¸ºç©ºçš„èŠ‚ç‚¹
 
 		pCur = q.front();
 		if (pCur != NULL)
 			return false;
 		return true;
 	}
-	//Çó¶ş²æÊ÷µÄ¾µÏñ
+	//æ±‚äºŒå‰æ ‘çš„é•œåƒ
 	BinaryTreeNode<T>* Mirror(BinaryTreeNode<T> * pRoot)
 	{
-		if (pRoot == NULL) // ·µ»ØNULL  
+		if (pRoot == NULL) // è¿”å›NULL  
 			return NULL;
-		BinaryTreeNode<T> * pLeft = Mirror(pRoot->_pLeftChild); // Çó×ó×ÓÊ÷¾µÏñ  
-		BinaryTreeNode<T> * pRight = Mirror(pRoot->_pRightChild); // ÇóÓÒ×ÓÊ÷¾µÏñ  
-		// ½»»»×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷  
+		BinaryTreeNode<T> * pLeft = Mirror(pRoot->_pLeftChild); // æ±‚å·¦å­æ ‘é•œåƒ  
+		BinaryTreeNode<T> * pRight = Mirror(pRoot->_pRightChild); // æ±‚å³å­æ ‘é•œåƒ  
+		// äº¤æ¢å·¦å­æ ‘å’Œå³å­æ ‘  
 		pRoot->_pLeftChild = pRight;
 		pRoot->_pRightChild = pLeft;
 		return pRoot;
 	}
 
-	//¶ş²æËÑË÷Ê÷×ª»»³ÉË«ÏòÁ´±í
+	//äºŒå‰æœç´¢æ ‘è½¬æ¢æˆåŒå‘é“¾è¡¨
 	BinaryTreeNode<T>* Convert(BinaryTreeNode<T>* pRootInTree)
 	{
 		BinaryTreeNode<T>* pLastNodeInList = NULL;
 
 		ConvertNode(pRootInTree, &pLastNodeInList);
 
-		//pLastNodeInListÖ¸ÏòË«ÏòÁ´±íµÄÎ²½áµã£¬ÔÙ´Î±éÀúÕÒµ½Í·½áµã  
+		//pLastNodeInListæŒ‡å‘åŒå‘é“¾è¡¨çš„å°¾ç»“ç‚¹ï¼Œå†æ¬¡éå†æ‰¾åˆ°å¤´ç»“ç‚¹  
 		BinaryTreeNode<T>* pHeadOfList = pLastNodeInList;
 		while (pHeadOfList != NULL && pHeadOfList->_pLeftChild != NULL)
 			pHeadOfList = pHeadOfList->_pLeftChild;
@@ -354,22 +353,22 @@ public:
 		return pHeadOfList;
 	}
 private:
-	//¶ş²æÊ÷ËÑË÷Ê÷×ª»»Ë«ÏòÁ´±í
+	//äºŒå‰æ ‘æœç´¢æ ‘è½¬æ¢åŒå‘é“¾è¡¨
 	void ConvertNode(BinaryTreeNode<T>* pNode, BinaryTreeNode<T>** pLastNodeInList)
 	{
 		if (pNode == NULL)
 			return;
 		BinaryTreeNode<T>* pCurrent = pNode;
-		//µİ¹é´¦Àí×ó×ÓÊ÷  
+		//é€’å½’å¤„ç†å·¦å­æ ‘  
 		if (pCurrent->_pLeftChild != NULL)
 			ConvertNode(pNode->_pLeftChild, pLastNodeInList);
-		//´¦Àíµ±Ç°½áµã              
-		pCurrent->_pLeftChild = *pLastNodeInList;    //½«µ±Ç°½áµãµÄ×óÖ¸ÕëÖ¸ÏòÒÑ¾­×ª»»ºÃµÄÁ´±íµÄ×îºóÒ»¸öÎ»ÖÃ  
+		//å¤„ç†å½“å‰ç»“ç‚¹              
+		pCurrent->_pLeftChild = *pLastNodeInList;    //å°†å½“å‰ç»“ç‚¹çš„å·¦æŒ‡é’ˆæŒ‡å‘å·²ç»è½¬æ¢å¥½çš„é“¾è¡¨çš„æœ€åä¸€ä¸ªä½ç½®  
 		if (*pLastNodeInList != NULL)
-			(*pLastNodeInList)->_pRightChild = pCurrent;//½«ÒÑ×ª»»ºÃµÄÁ´±íµÄ×îºóÒ»¸ö½áµãµÄÓÒÖ¸ÕëÖ¸Ïòµ±Ç°½áµã  
+			(*pLastNodeInList)->_pRightChild = pCurrent;//å°†å·²è½¬æ¢å¥½çš„é“¾è¡¨çš„æœ€åä¸€ä¸ªç»“ç‚¹çš„å³æŒ‡é’ˆæŒ‡å‘å½“å‰ç»“ç‚¹  
 
-		*pLastNodeInList = pCurrent;//¸üĞÂÁ´±íµÄ×îºóÒ»¸ö½áµã  
-		//µİ¹é´¦Àíµ±Ç°½áµãµÄÓÒ×ÓÊ÷  
+		*pLastNodeInList = pCurrent;//æ›´æ–°é“¾è¡¨çš„æœ€åä¸€ä¸ªç»“ç‚¹  
+		//é€’å½’å¤„ç†å½“å‰ç»“ç‚¹çš„å³å­æ ‘  
 		if (pCurrent->_pRightChild != NULL)
 			ConvertNode(pNode->_pRightChild, pLastNodeInList);
 	}
@@ -405,7 +404,7 @@ private:
 		}
 	}
 
-	void _PreOreder(BinaryTreeNode<T>* proot) //Ç°Ğò±éÀú
+	void _PreOreder(BinaryTreeNode<T>* proot) //å‰åºéå†
 	{
 		if (proot)
 		{
@@ -414,7 +413,7 @@ private:
 			_PreOreder(proot->_pRightChild);
 		}
 	}
-	void _InOrder(BinaryTreeNode<T>* proot) //ÖĞĞò±éÀú
+	void _InOrder(BinaryTreeNode<T>* proot) //ä¸­åºéå†
 	{
 		if (proot)
 		{
@@ -423,7 +422,7 @@ private:
 			_InOrder(proot->_pRightChild);
 		}
 	}
-	void _PostOrder(BinaryTreeNode<T>* proot)  //ºóĞø±éÀú
+	void _PostOrder(BinaryTreeNode<T>* proot)  //åç»­éå†
 	{
 		if (proot)
 		{
@@ -467,7 +466,7 @@ private:
 		return (LHeigt > RHeight) ? (LHeigt + 1) : (RHeight + 1);
 	}
 	size_t _GetLeafNodeNum(BinaryTreeNode<T>* pRoot)
-		// ²ÉÓÃµİ¹éËã·¨£¬Èç¹û¿ÕÊ÷·µ»Ø0£¬Èç¹ûÖ»ÓĞÒ»¸ö½Úµã(¸ù½Úµã)·µ»Ø1£¬·ñÔòÎª×óÓÒ×ÓÊ÷µÄÒ¶×Ó½áµãÊ÷Ö®ºÍ
+		// é‡‡ç”¨é€’å½’ç®—æ³•ï¼Œå¦‚æœç©ºæ ‘è¿”å›0ï¼Œå¦‚æœåªæœ‰ä¸€ä¸ªèŠ‚ç‚¹(æ ¹èŠ‚ç‚¹)è¿”å›1ï¼Œå¦åˆ™ä¸ºå·¦å³å­æ ‘çš„å¶å­ç»“ç‚¹æ ‘ä¹‹å’Œ
 	{
 		size_t leafCount = 0;
 		if (pRoot == NULL)
@@ -479,7 +478,7 @@ private:
 		return leafCount;
 	}
 	void _GetLeafNodeNum2(BinaryTreeNode<T>* pRoot)
-		//ºóĞò±éÀúÍ³¼ÆÒ¶×Ó½áµã
+		//ååºéå†ç»Ÿè®¡å¶å­ç»“ç‚¹
 	{
 		if (pRoot != NULL)
 		{
@@ -497,9 +496,9 @@ private:
 			return _GetNodeNum(pRoot->_pLeftChild) + _GetNodeNum(pRoot->_pRightChild) + 1;
 	}
 	size_t _GetKthLeverNodeNum(BinaryTreeNode<T>* pRoot,size_t k)
-		//£º£¨1£©Èç¹û¶ş²æÊ÷Îª¿Õ»òÕßk<1·µ»Ø0
-		//£¨2£©Èç¹û¶ş²æÊ÷²»Îª¿Õ²¢ÇÒk == 1£¬·µ»Ø1
-		//£¨3£©Èç¹û¶ş²æÊ÷²»Îª¿ÕÇÒk>1£¬·µ»Ø×ó×ÓÊ÷ÖĞk - 1²ãµÄ½Úµã¸öÊıÓëÓÒ×ÓÊ÷k - 1²ã½Úµã¸öÊıÖ®ºÍ
+		//ï¼šï¼ˆ1ï¼‰å¦‚æœäºŒå‰æ ‘ä¸ºç©ºæˆ–è€…k<1è¿”å›0
+		//ï¼ˆ2ï¼‰å¦‚æœäºŒå‰æ ‘ä¸ä¸ºç©ºå¹¶ä¸”k == 1ï¼Œè¿”å›1
+		//ï¼ˆ3ï¼‰å¦‚æœäºŒå‰æ ‘ä¸ä¸ºç©ºä¸”k>1ï¼Œè¿”å›å·¦å­æ ‘ä¸­k - 1å±‚çš„èŠ‚ç‚¹ä¸ªæ•°ä¸å³å­æ ‘k - 1å±‚èŠ‚ç‚¹ä¸ªæ•°ä¹‹å’Œ
 	{
 		if (pRoot == NULL || k == 0)
 			return 0;
@@ -513,8 +512,8 @@ private:
 	{
 		if (left >= right || preSize != InSize)
 			return;
-		//Ç°Ğò½á¹ûÖĞÈ¡Ò»¸öÔªËØ
-		// ÔÚÖĞĞòÖĞÕÒÇ°ĞòindexµÄÔªËØ
+		//å‰åºç»“æœä¸­å–ä¸€ä¸ªå…ƒç´ 
+		// åœ¨ä¸­åºä¸­æ‰¾å‰åºindexçš„å…ƒç´ 
 		size_t idx = left;
 		while (idx < right)
 		{
@@ -526,38 +525,38 @@ private:
 			return;
 		pRoot = new BinaryTreeNode<T>(pre[index]);
 
-		if (left < idx) //×ó×ÓÊ÷´æÔÚ
+		if (left < idx) //å·¦å­æ ‘å­˜åœ¨
 		_ReBuildBinaryTree(pRoot->_pLeftChild, pre, ++index, preSize, in, InSize,left, idx);
 
 		if (idx + 1 < right)
 			_ReBuildBinaryTree(pRoot->_pRightChild, pre, ++index, preSize, in, InSize, idx + 1, right);
 
 	}
-	//Ç°ÖĞĞòÖØ½¨¶ş²æÊ÷
+	//å‰ä¸­åºé‡å»ºäºŒå‰æ ‘
 	BinaryTreeNode<T>* _ConstructTree(T *startPreOrder,T *endPreOrder,T *startInOrder,T *endInOrder)
 	{
-		//Ç°Ğò±éÀúµÄµÚÒ»¸ö½áµãÎª¸ù½Úµã
+		//å‰åºéå†çš„ç¬¬ä¸€ä¸ªç»“ç‚¹ä¸ºæ ¹èŠ‚ç‚¹
 		T rootValue = startPreOrder[0];
 		BinaryTreeNode<T>* pRoot = new	BinaryTreeNode<T>(rootValue);
-		//Ö»ÓĞÒ»¸öÔªËØ
+		//åªæœ‰ä¸€ä¸ªå…ƒç´ 
 		if (startPreOrder == endPreOrder && *startInOrder == *startPreOrder)
 			return pRoot;
-		//ÔÚÖĞĞò±éÀúÖĞÕÒµ½¸ù½ÚµãµÄÖµ
+		//åœ¨ä¸­åºéå†ä¸­æ‰¾åˆ°æ ¹èŠ‚ç‚¹çš„å€¼
 		T* rootInOreder = startInOrder;
 		while (rootInOreder <= endInOrder && *rootInOreder != rootValue)
 		{
 			++rootInOreder;
-		}//Ìø³öÑ­»·¿ÉÄÜÃ»ÓĞÕÒµ½
+		}//è·³å‡ºå¾ªç¯å¯èƒ½æ²¡æœ‰æ‰¾åˆ°
 		if (*rootInOreder != rootValue)
 			throw std::exception("Invalid input");
 
-		int leftlength = rootInOreder - startInOrder; //×ó×ÓÊ÷µÄ³¤¶È
-		T *leftPreEnd = startPreOrder + leftlength; //Ç°Ğò×ó×ÓÊ÷µÄendÎ»ÖÃ
-		if (leftlength > 0)//¹¹½¨×ó×ÓÊ÷
+		int leftlength = rootInOreder - startInOrder; //å·¦å­æ ‘çš„é•¿åº¦
+		T *leftPreEnd = startPreOrder + leftlength; //å‰åºå·¦å­æ ‘çš„endä½ç½®
+		if (leftlength > 0)//æ„å»ºå·¦å­æ ‘
 		{
 			pRoot->_pLeftChild = _ConstructTree(startPreOrder + 1, leftPreEnd, startInOrder, rootInOreder - 1);
 		}
-		if (leftlength < endPreOrder - startPreOrder)//¹¹½¨ÓÒ×ÓÊ÷
+		if (leftlength < endPreOrder - startPreOrder)//æ„å»ºå³å­æ ‘
 		{
 			pRoot->_pRightChild = _ConstructTree(leftPreEnd + 1, endPreOrder, rootInOreder + 1, endInOrder);
 		}
