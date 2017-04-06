@@ -37,6 +37,7 @@ public:
 	{
 		_pRoot = _CopyBinartTree(tree._pRoot);
 	}
+	
 	BinaryTree<T>& operator=(BinaryTree<T>& tree)
 	{
 		if (this != &tree)
