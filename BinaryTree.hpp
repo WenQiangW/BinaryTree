@@ -5,6 +5,7 @@
 using namespace std;
 
 int leafCountt = 0;
+
 template<class T>
 struct BinaryTreeNode
 {
