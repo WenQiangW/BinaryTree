@@ -78,6 +78,7 @@ public:
 		_InOrder(_pRoot);
 		cout << endl;
 	}
+	
 	void InOrder_Nor() //非递归
 		//存放到栈中 先找到最左边的节点（依次存放）
 	{
