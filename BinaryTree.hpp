@@ -354,6 +354,7 @@ public:
 
 		return pHeadOfList;
 	}
+	
 private:
 	//二叉树搜索树转换双向链表
 	void ConvertNode(BinaryTreeNode<T>* pNode, BinaryTreeNode<T>** pLastNodeInList)
