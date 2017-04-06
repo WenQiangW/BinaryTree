@@ -244,6 +244,7 @@ public:
 		bool resultRight = StructureCmp(pRoot1->m_pRight, pRoot2->m_pRight); // 比较对应右子树  
 		return (resultLeft && resultRight);
 	}
+	
 	//前序中序 构建二叉树
 	void ReBuildBinaryTree(T pre[], size_t preSize, T in[], size_t inSize)
 	{
