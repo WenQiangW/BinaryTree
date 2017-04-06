@@ -46,6 +46,7 @@ public:
 		}
 		return *this;
 	}
+	
 	void PreOrder() //递归 abdcef
 	{
 		cout << "前序遍历" << endl;
