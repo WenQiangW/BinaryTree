@@ -23,6 +23,7 @@ template<class T>
 class BinaryTree
 {
 public:
+	
 	BinaryTree()
 		:_pRoot(NULL)
 	{}
