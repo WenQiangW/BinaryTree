@@ -71,6 +71,7 @@ public:
 		}
 		cout << endl;
 	}
+	
 	void InOrder() //递归：dbaecf
 	{
 		cout << "中序遍历" << endl;
